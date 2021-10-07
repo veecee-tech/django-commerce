@@ -1,6 +1,6 @@
 from django.core import paginator
 from django.http.response import HttpResponse
-from django.shortcuts import get_object_or_404, redirect, render
+from django.shortcuts import get_object_or_404, render
 from cart.models import Cart_Item
 from cart.views import _cart_id
 from store.models import Product, Category
@@ -51,18 +51,13 @@ def product_detail(request, category_slug, product_slug):
     return render(request, 'store/product_detail.html', context)
 
 def search(request):
-    context = {}
+
     if 'keyword' in request.GET:
         keyword = request.GET['keyword']
-        
+
         if keyword:
             products = Product.objects.order_by('-created_date').filter(description__icontains=keyword)
-            context = {
-            'products': products,
-            'product_count': products.count()
+        context = {
+            'products': products
         }
-        else: 
-            pass
-            
-        
     return render(request, 'store/store.html', context)
