@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRETKEY')
+SECRET_KEY = "6a2p47%j5$a8^wobijhc2pu$!4423f#kku^pst+!z@yc0o$#*6"
 ON_HEROKU = os.environ.get('ON_HEROKU')
 HEROKU_SERVER = os.environ.get('HEROKU_SERVER')
 
